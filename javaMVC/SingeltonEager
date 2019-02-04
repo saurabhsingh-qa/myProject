@@ -1,0 +1,26 @@
+//factory class
+class Factory
+{
+private static Factory obj = new Factory();
+public int x=1000;
+// factory method
+        private Factory() {
+            
+        } 
+        public static Factory getObject() 
+        { 
+          return obj;
+        } 
+}
+//driver class
+public class Main 
+{ 
+   public static void main(String args[])     
+   { 
+       Factory f = Factory.getObject(); 
+       Factory ff = Factory.getObject(); 
+       f.x = f.x* 10; 
+       System.out.println("Value of a.x = " + f.x); 
+       System.out.println("Value of b.x = " + ff.x); 
+   }     
+}  

@@ -1,0 +1,34 @@
+class Factory
+{
+private static Factory obj;
+public int x=1000;
+        private Factory()
+        {
+            
+        }
+     public static synchronized Factory getObject() 
+     { 
+            if(obj==null)
+            {
+                 obj = new Factory();
+            }
+             return obj; 
+     } 
+}
+public class Main extends Thread
+{
+    public void run()
+    {  
+      Factory f = Factory.getObject(); 
+      f.x = f.x* 10; 
+      System.out.println("Value of a.x = " + f.x); 
+    }  
+    public static void main(String args[])
+    {
+        Main m = new Main();
+        Main mm = new Main();
+        m.start();
+        mm.start();
+        
+    }
+}
